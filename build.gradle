@@ -1,0 +1,44 @@
+plugins {
+	id 'org.springframework.boot' version '2.2.0.M5'
+	id 'java'
+	id 'war'
+	id 'eclipse'
+}
+
+apply plugin: 'io.spring.dependency-management'
+
+group = 'com.hotel'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+repositories {
+		mavenCentral()
+		maven { url "https://repo.spring.io/snapshot" }
+		maven { url "https://repo.spring.io/milestone" }
+		maven { url 'https://repo.spring.io/libs-milestone'}
+}
+
+configurations {
+	developmentOnly
+	runtimeClasspath {
+		extendsFrom developmentOnly
+	}
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	compile group: 'com.fasterxml.jackson.core', name: 'jackson-core', version: '2.9.2'
+	compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.9.2'
+	compile group: 'com.fasterxml.jackson.core', name: 'jackson-annotations', version: '2.9.2'
+	developmentOnly("org.springframework.boot:spring-boot-devtools")
+	providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
+	testImplementation('org.springframework.boot:spring-boot-starter-test') {
+		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+		exclude group: 'junit', module: 'junit'
+	}
+}
+
+
+test {
+	useJUnitPlatform()
+}
