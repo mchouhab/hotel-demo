@@ -1,0 +1,21 @@
+[
+	{
+		"id": 1,
+		"roomId": 2,
+		"startDate": "2018-08-14T00:00:00.000+0000",
+		"endDate": "2019-08-14T00:00:00.000+0000",
+		"priceUpgrades": [
+			"Discount",
+			"ExtraDay",
+			"FeatureUpgrade"
+		],
+		"featureUpgrades": [
+			"DoubleBed",
+			"SingleBed",
+			"QueenBed",
+			"KingBed",
+			"Microwave",
+			"Fridge"
+		]
+	}
+]

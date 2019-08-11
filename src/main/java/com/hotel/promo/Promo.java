@@ -1,8 +1,12 @@
 package com.hotel.promo;
 
 import java.util.Calendar;
+import java.util.LinkedList;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.hotel.price.Price;
+import com.hotel.room.Room;
 
 /**
  * @author mchouhab
@@ -16,6 +20,7 @@ public class Promo {
 	private Price value;
 	private Calendar startDate;
 	private Calendar endDate;
+	private LinkedList<Integer> roomIds = new LinkedList<Integer>();
 
 	/**
 	 * @param id
@@ -24,12 +29,15 @@ public class Promo {
 	 * @param startDate
 	 * @param endDate
 	 */
-	public Promo(Integer id, PromoType type, Price value, Calendar startDate, Calendar endDate) {
+	@JsonCreator
+	public Promo(@JsonProperty("id") Integer id, @JsonProperty("type") PromoType type, @JsonProperty("value") Price value, 
+			@JsonProperty("startDate") Calendar startDate, @JsonProperty("endDate") Calendar endDate, @JsonProperty("roomIds") LinkedList<Integer> roomIds) {
 		this.Id = id;
 		this.type = type;
 		this.value = value;
 		this.startDate = startDate;
 		this.endDate = endDate;
+		this.roomIds = roomIds;
 	}
 
 	/**
@@ -105,6 +113,20 @@ public class Promo {
 	 */
 	public void setEndDate(Calendar endDate) {
 		this.endDate = endDate;
+	}
+
+	/**
+	 * @return the roomIds
+	 */
+	public LinkedList<Integer> getRoomIds() {
+		return roomIds;
+	}
+
+	/**
+	 * @param roomIds the roomIds to set
+	 */
+	public void setRoomIds(LinkedList<Integer> roomIds) {
+		this.roomIds = roomIds;
 	}
 
 }

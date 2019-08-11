@@ -14,7 +14,6 @@ import com.hotel.room.Room;
 import com.hotel.room.RoomType;
 
 @SpringBootApplication
-@RestController
 public class DemoApplication implements CommandLineRunner {
 
  	
@@ -32,8 +31,9 @@ public class DemoApplication implements CommandLineRunner {
 	 */
 	@Override
 	public void run(String... args) throws Exception {
-		reservationBook.getPromos().add(new Promo(1, PromoType.Discount,new Price(10.0,Currency.getInstance("USD")),null,null));
-		reservationBook.getRooms().add(new Room(1, RoomType.DoubleRoom,new Price(50.0,Currency.getInstance("USD")), null,null));
+		//reservationBook.getPromos().add(new Promo(1, PromoType.Discount,new Price(10.0,Currency.getInstance("USD")),null,null,null));
+		//reservationBook.getRooms().add(new Room(1, RoomType.DoubleRoom,new Price(50.0,Currency.getInstance("USD")), null,null));
+		//reservationBook.getListOfBookings().put(new Room(1, RoomType.DoubleRoom,new Price(50.0,Currency.getInstance("USD")), null,null), null);
 		
 	}
 

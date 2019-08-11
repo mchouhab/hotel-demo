@@ -2,8 +2,10 @@ package com.hotel.room;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.hotel.price.Price;
-import com.hotel.promo.Promo;
+import com.hotel.promo.PromoType;
 
 /**
  * @author mchouhab
@@ -12,41 +14,43 @@ import com.hotel.promo.Promo;
  */
 public class Room {
 
-	private Integer roomNumber;
+	private Integer id;
 	private RoomType type;
 	private Price price;
-	private List<Promo> listOfApplicablePromos;
-	private List<RoomFeature> listOfApplicableFeatures;
+	private List<PromoType> listOfApplicablePromos; // List of promotions types that can be applied to this room
+	private List<RoomFeature> listOfApplicableFeatures; // List of features that can be added to this room
 
 	/**
-	 * @param i
-	 * @param doubleroom
-	 * @param price2
-	 * @param object
-	 * @param object2
+	 * @param id
+	 * @param type
+	 * @param price
+	 * @param listOfApplicablePromos
+	 * @param listOfApplicableFeatures
 	 */
-	public Room(Integer num, RoomType type, Price price, List<Promo> listOfApplicablePromos,
-			List<RoomFeature> listOfApplicableFeatures) {
-		this.roomNumber = num;
+	@JsonCreator
+	public Room(@JsonProperty("id") Integer id, @JsonProperty("type") RoomType type, @JsonProperty("price") Price price, 
+			@JsonProperty("listOfApplicablePromos") List<PromoType> listOfApplicablePromos,
+			@JsonProperty("listOfApplicableFeatures") List<RoomFeature> listOfApplicableFeatures) {
+		this.id = id;
 		this.type = type;
 		this.price = price;
-		this.listOfApplicablePromos = listOfApplicablePromos;
+		this.setListOfApplicablePromos(listOfApplicablePromos);
 		this.listOfApplicableFeatures = listOfApplicableFeatures;
 	}
 
 	/**
-	 * @return the roomNumber
+	 * @return the id
 	 */
-	public Integer getRoomNumber() {
-		return roomNumber;
+	public Integer getId() {
+		return id;
 	}
 
 	/**
-	 * @param roomNumber
-	 *            the roomNumber to set
+	 * @param id
+	 *            the id to set
 	 */
-	public void setRoomNumber(Integer roomNumber) {
-		this.roomNumber = roomNumber;
+	public void setId(Integer id) {
+		this.id = id;
 	}
 
 	/**
@@ -79,20 +83,6 @@ public class Room {
 		this.price = price;
 	}
 
-	/**
-	 * @return the listOfApplicablePromos
-	 */
-	public List<Promo> getListOfApplicablePromos() {
-		return listOfApplicablePromos;
-	}
-
-	/**
-	 * @param listOfApplicablePromos
-	 *            the listOfApplicablePromos to set
-	 */
-	public void setListOfApplicablePromos(List<Promo> listOfApplicablePromos) {
-		this.listOfApplicablePromos = listOfApplicablePromos;
-	}
 
 	/**
 	 * @return the listOfApplicableFeatures
@@ -107,6 +97,20 @@ public class Room {
 	 */
 	public void setListOfApplicableFeatures(List<RoomFeature> listOfApplicableFeatures) {
 		this.listOfApplicableFeatures = listOfApplicableFeatures;
+	}
+
+	/**
+	 * @return the listOfApplicablePromos
+	 */
+	public List<PromoType> getListOfApplicablePromos() {
+		return listOfApplicablePromos;
+	}
+
+	/**
+	 * @param listOfApplicablePromos the listOfApplicablePromos to set
+	 */
+	public void setListOfApplicablePromos(List<PromoType> listOfApplicablePromos) {
+		this.listOfApplicablePromos = listOfApplicablePromos;
 	}
 
 }

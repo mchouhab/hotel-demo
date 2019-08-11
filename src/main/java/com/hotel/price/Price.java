@@ -2,6 +2,9 @@ package com.hotel.price;
 
 import java.util.Currency;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 /**
  * @author mchouhab
  *
@@ -16,9 +19,10 @@ public class Price {
 	 * @param amount
 	 * @param cur
 	 */
-	public Price(Double amount, Currency cur) {
+	@JsonCreator
+	public Price(@JsonProperty("amount") Double amount, @JsonProperty("currency")  Currency currency) {
 		this.amount = amount;
-		this.currency = cur;
+		this.currency = currency;
 	}
 
 	/**

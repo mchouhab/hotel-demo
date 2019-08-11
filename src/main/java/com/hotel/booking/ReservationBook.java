@@ -17,74 +17,39 @@ import com.hotel.room.Room;
 @Configuration
 public class ReservationBook {
 
-	HashMap<Room, List<Booking>> listOfBookings;
-	LinkedList<Promo> promos = new LinkedList<Promo>();
-	LinkedList<Room> rooms = new LinkedList<Room>();
+	private HashMap<Integer, LinkedList<Booking>> listOfBookingsByRoomId = new HashMap<Integer, LinkedList<Booking>>();
+	private HashMap<Calendar, LinkedList<Room>> listOfBookingsByDate = new HashMap<Calendar, LinkedList<Room>>();
+	private LinkedList<Promo> promos = new LinkedList<Promo>();
+	private LinkedList<Room> rooms = new LinkedList<Room>();
 
 	/**
-	 * Check room availability for a given range
-	 * 
-	 * @param start
-	 * @param end
+	 * @return the listOfBookingsByRoomId
 	 */
-	public void isRoomAvailableForTime(Calendar start, Calendar end) {
-
+	public HashMap<Integer, LinkedList<Booking>> getListOfBookingsByRoomId() {
+		return listOfBookingsByRoomId;
 	}
 
 	/**
-	 * Apply offer to all time the room is available
-	 * 
-	 * @param promo
-	 * @param room
-	 * @return
+	 * @param listOfBookingsByRoomId
+	 *            the listOfBookingsByRoomId to set
 	 */
-	public boolean ApplyPromo(Promo promo, Room... room) {
-		return false;
-
+	public void setListOfBookingsByRoomId(HashMap<Integer, LinkedList<Booking>> listOfBookingsByRoomId) {
+		this.listOfBookingsByRoomId = listOfBookingsByRoomId;
 	}
 
 	/**
-	 * Apply promo for a certain period of time
-	 * 
-	 * @param promo
-	 * @param start
-	 * @param end
-	 * @param room
-	 * @return
+	 * @return the listOfBookingsByDate
 	 */
-	public boolean ApplyPromoForTime(Promo promo, Calendar start, Calendar end, Room... room) {
-		return false;
-
+	public HashMap<Calendar, LinkedList<Room>> getListOfBookingsByDate() {
+		return listOfBookingsByDate;
 	}
 
 	/**
-	 * Book room for a certain date range
-	 * 
-	 * @param start
-	 * @param end
-	 * @return true is successful, false if unsuccessful
+	 * @param listOfBookingsByDate
+	 *            the listOfBookingsByDate to set
 	 */
-	public boolean bookRoomForTime(Calendar start, Calendar end) {
-		return false;
-	}
-
-	public boolean addPromo(Promo promo) {
-		return this.promos.add(promo);
-	}
-
-	/**
-	 * @return the listOfBookings
-	 */
-	public HashMap<Room, List<Booking>> getListOfBookings() {
-		return listOfBookings;
-	}
-
-	/**
-	 * @param listOfBookings
-	 *            the listOfBookings to set
-	 */
-	public void setListOfBookings(HashMap<Room, List<Booking>> listOfBookings) {
-		this.listOfBookings = listOfBookings;
+	public void setListOfBookingsByDate(HashMap<Calendar, LinkedList<Room>> listOfBookingsByDate) {
+		this.listOfBookingsByDate = listOfBookingsByDate;
 	}
 
 	/**

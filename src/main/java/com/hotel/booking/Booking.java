@@ -2,9 +2,9 @@ package com.hotel.booking;
 
 import java.util.Calendar;
 import java.util.List;
-
-import com.hotel.promo.Promo;
-import com.hotel.room.Room;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.hotel.promo.PromoType;
 import com.hotel.room.RoomFeature;
 
 /**
@@ -13,11 +13,13 @@ import com.hotel.room.RoomFeature;
  *         Represents a booking entity with room and date details
  */
 public class Booking {
-	Room room;
-	Calendar reservationStartDate;
-	Calendar reservationEndDate;
-	List<Promo> priceUpgrades; // Promotions that can be applied to a certain type of rooms
-	List<RoomFeature> featureUpgrades; // Features that can apply to a certain type of rooms
+	
+	private Integer id;
+	private Integer roomId;
+	private Calendar reservationStartDate;
+	private Calendar reservationEndDate;
+	private List<PromoType> priceUpgrades; // List of offers included in this booking
+	private List<RoomFeature> featureUpgrades; // List of features included with this booking
 
 	/**
 	 * @param room
@@ -26,58 +28,18 @@ public class Booking {
 	 * @param priceUpgrades
 	 * @param featureUpgrades
 	 */
-	public Booking(Room room, Calendar reservationStartDate, Calendar reservationEndDate, List<Promo> priceUpgrades,
-			List<RoomFeature> featureUpgrades) {
-		this.room = room;
+	@JsonCreator
+	public Booking(@JsonProperty("id") Integer id, @JsonProperty("roomId") Integer roomId, @JsonProperty("reservationStartDate") Calendar reservationStartDate, 
+			@JsonProperty("reservationEndDate") Calendar reservationEndDate, 
+			@JsonProperty("priceUpgrades") List<PromoType> priceUpgrades,
+			@JsonProperty("featureUpgrades") List<RoomFeature> featureUpgrades) {
+		this.setId(id);
+		this.roomId = roomId;
 		this.reservationStartDate = reservationStartDate;
 		this.reservationEndDate = reservationEndDate;
 		this.priceUpgrades = priceUpgrades;
 		this.featureUpgrades = featureUpgrades;
 
-	}
-
-	/**
-	 * @param start
-	 * @param end
-	 * @param promo
-	 */
-	public void ApplyPromoForTime(Calendar start, Calendar end, Promo promo) {
-
-	}
-
-	/**
-	 * @param start
-	 * @param end
-	 * @param feature
-	 */
-	public void ApplyFeatureUpgradeForTime(Calendar start, Calendar end, RoomFeature feature) {
-
-	}
-
-	/**
-	 * Method to book a room or remove reservation from a room
-	 * 
-	 * @param start
-	 * @param end
-	 * @param isAvailable
-	 */
-	public void setRoomAvailabilityForTime(Calendar start, Calendar end, Boolean isAvailable) {
-
-	}
-
-	/**
-	 * @return the room
-	 */
-	public Room getRoom() {
-		return room;
-	}
-
-	/**
-	 * @param room
-	 *            the room to set
-	 */
-	public void setRoom(Room room) {
-		this.room = room;
 	}
 
 	/**
@@ -113,7 +75,7 @@ public class Booking {
 	/**
 	 * @return the priceUpgrades
 	 */
-	public List<Promo> getPriceUpgrades() {
+	public List<PromoType> getPriceUpgrades() {
 		return priceUpgrades;
 	}
 
@@ -121,7 +83,7 @@ public class Booking {
 	 * @param priceUpgrades
 	 *            the priceUpgrades to set
 	 */
-	public void setPriceUpgrades(List<Promo> priceUpgrades) {
+	public void setPriceUpgrades(List<PromoType> priceUpgrades) {
 		this.priceUpgrades = priceUpgrades;
 	}
 
@@ -138,6 +100,34 @@ public class Booking {
 	 */
 	public void setFeatureUpgrades(List<RoomFeature> featureUpgrades) {
 		this.featureUpgrades = featureUpgrades;
+	}
+
+	/**
+	 * @return the roomId
+	 */
+	public Integer getRoomId() {
+		return roomId;
+	}
+
+	/**
+	 * @param roomId the roomId to set
+	 */
+	public void setRoomId(Integer roomId) {
+		this.roomId = roomId;
+	}
+
+	/**
+	 * @return the id
+	 */
+	public Integer getId() {
+		return id;
+	}
+
+	/**
+	 * @param id the id to set
+	 */
+	public void setId(Integer id) {
+		this.id = id;
 	}
 
 }
