@@ -2,10 +2,14 @@ package com.hotel.booking;
 
 import java.util.Calendar;
 import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.hotel.promo.PromoType;
 import com.hotel.room.RoomFeature;
+import com.hotel.room.RoomType;
 
 /**
  * @author mchouhab
@@ -13,63 +17,66 @@ import com.hotel.room.RoomFeature;
  *         Represents a booking entity with room and date details
  */
 public class Booking {
-	
+
 	private Integer id;
 	private Integer roomId;
-	private Calendar reservationStartDate;
-	private Calendar reservationEndDate;
-	private List<PromoType> priceUpgrades; // List of offers included in this booking
-	private List<RoomFeature> featureUpgrades; // List of features included with this booking
-
+	private RoomType roomType;
+	private Calendar start;
+	private Calendar end;
+	private List<PromoType> priceUpgrades; // List of offers included in this
+											// booking
+	private List<RoomFeature> featureUpgrades; // List of features included with
+	
 	/**
 	 * @param room
-	 * @param reservationStartDate
-	 * @param reservationEndDate
+	 * @param start
+	 * @param end
 	 * @param priceUpgrades
 	 * @param featureUpgrades
 	 */
 	@JsonCreator
-	public Booking(@JsonProperty("id") Integer id, @JsonProperty("roomId") Integer roomId, @JsonProperty("reservationStartDate") Calendar reservationStartDate, 
-			@JsonProperty("reservationEndDate") Calendar reservationEndDate, 
+	public Booking(@JsonProperty("id") Integer id, @JsonProperty("roomId") Integer roomId,
+			@JsonProperty("start") Calendar start,
+			@JsonProperty("end") Calendar end,
 			@JsonProperty("priceUpgrades") List<PromoType> priceUpgrades,
 			@JsonProperty("featureUpgrades") List<RoomFeature> featureUpgrades) {
 		this.setId(id);
 		this.roomId = roomId;
-		this.reservationStartDate = reservationStartDate;
-		this.reservationEndDate = reservationEndDate;
+		this.start = start;
+		this.end = end;
 		this.priceUpgrades = priceUpgrades;
 		this.featureUpgrades = featureUpgrades;
 
 	}
 
 	/**
-	 * @return the reservationStartDate
+	 * @return the start
 	 */
-	public Calendar getReservationStartDate() {
-		return reservationStartDate;
+	public Calendar getStart() {
+		return start;
 	}
 
 	/**
-	 * @param reservationStartDate
-	 *            the reservationStartDate to set
+	 * @param start
+	 *            the start to set
 	 */
-	public void setReservationStartDate(Calendar reservationStartDate) {
-		this.reservationStartDate = reservationStartDate;
+	public void setStart(Calendar start) {
+		this.start = start;
 	}
 
 	/**
-	 * @return the reservationEndDate
+	 * @return the end
 	 */
-	public Calendar getReservationEndDate() {
-		return reservationEndDate;
+	public Calendar getEnd() {
+		return end;
 	}
 
 	/**
-	 * @param reservationEndDate
-	 *            the reservationEndDate to set
+	 * @param end
+	 *            the end to set
 	 */
-	public void setReservationEndDate(Calendar reservationEndDate) {
-		this.reservationEndDate = reservationEndDate;
+	public void setEnd(Calendar end) {
+		this.end = end;
 	}
 
 	/**
@@ -110,7 +117,8 @@ public class Booking {
 	}
 
 	/**
-	 * @param roomId the roomId to set
+	 * @param roomId
+	 *            the roomId to set
 	 */
 	public void setRoomId(Integer roomId) {
 		this.roomId = roomId;
@@ -124,10 +132,25 @@ public class Booking {
 	}
 
 	/**
-	 * @param id the id to set
+	 * @param id
+	 *            the id to set
 	 */
 	public void setId(Integer id) {
 		this.id = id;
+	}
+
+	/**
+	 * @return the roomType
+	 */
+	public RoomType getRoomType() {
+		return roomType;
+	}
+
+	/**
+	 * @param roomType the roomType to set
+	 */
+	public void setRoomType(RoomType roomType) {
+		this.roomType = roomType;
 	}
 
 }

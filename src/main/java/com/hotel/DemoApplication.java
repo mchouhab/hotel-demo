@@ -5,6 +5,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.hotel.booking.ReservationBook;
 import com.hotel.price.Price;
@@ -14,11 +17,17 @@ import com.hotel.room.Room;
 import com.hotel.room.RoomType;
 
 @SpringBootApplication
+@RestController
 public class DemoApplication implements CommandLineRunner {
 
  	
 	@Autowired
 	ReservationBook reservationBook;
+	
+	@GetMapping("/")
+	public ResponseEntity<String> home(){
+		return ResponseEntity.status(HttpStatus.OK).body("Home page of the hotel reservation system demo");
+	}
 	
 	public static void main(String[] args) {
 		SpringApplication app = new SpringApplication(DemoApplication.class);
