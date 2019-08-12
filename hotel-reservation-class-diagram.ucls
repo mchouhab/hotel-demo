@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<class-diagram version="1.2.3" icons="true" automaticImage="JPEG" always-add-relationships="false" 
-  generalizations="true" realizations="true" associations="true" dependencies="true" nesting-relationships="true" 
-  router="FAN">  
+<class-diagram version="1.2.3" icons="true" automaticImage="GIF" always-add-relationships="false" generalizations="true" 
+  realizations="true" associations="true" dependencies="true" nesting-relationships="true" router="FAN">  
   <class id="1" language="java" name="com.hotel.booking.Booking" project="hotel-demo" 
     file="/hotel-demo/src/main/java/com/hotel/booking/Booking.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="279" y="492"/>    
@@ -75,95 +74,115 @@
     </display>  
   </class>  
   <association id="9">    
-    <end type="SOURCE" refId="8" navigable="false">      
-      <attribute id="10" name="listOfApplicablePromos"/>      
-      <multiplicity id="11" minimum="0" maximum="2147483647"/>    
+    <end type="SOURCE" refId="1" navigable="false">      
+      <attribute id="10" name="featureUpgrades">        
+        <position height="0" width="0" x="9" y="-204"/>      
+      </attribute>      
+      <multiplicity id="11" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="9" y="-204"/>      
+      </multiplicity>    
     </end>    
-    <end type="TARGET" refId="4" navigable="true"/>    
+    <end type="TARGET" refId="6" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="12">    
+    <end type="SOURCE" refId="8" navigable="false">      
+      <attribute id="13" name="type">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="14" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="7" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="15">    
     <end type="SOURCE" refId="2" navigable="false">      
-      <attribute id="13" name="promos">        
+      <attribute id="16" name="rooms">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="17" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="8" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="18">    
+    <end type="SOURCE" refId="5" navigable="false">      
+      <attribute id="19" name="value">        
+        <position height="0" width="0" x="114" y="175"/>      
+      </attribute>      
+      <multiplicity id="20" minimum="0" maximum="1">        
+        <position height="0" width="0" x="114" y="175"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="3" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="21">    
+    <end type="SOURCE" refId="8" navigable="false">      
+      <attribute id="22" name="listOfApplicableFeatures">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="23" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="6" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="24">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="1"/>  
+  </dependency>  
+  <association id="25">    
+    <end type="SOURCE" refId="2" navigable="false">      
+      <attribute id="26" name="promos">        
         <position height="0" width="0" x="-1" y="-6"/>      
       </attribute>      
-      <multiplicity id="14" minimum="0" maximum="2147483647">        
+      <multiplicity id="27" minimum="0" maximum="2147483647">        
         <position height="0" width="0" x="-1" y="-6"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="5" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="15">    
+  <association id="28">    
     <end type="SOURCE" refId="8" navigable="false">      
-      <attribute id="16" name="price"/>      
-      <multiplicity id="17" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="3" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="18">    
-    <end type="SOURCE" refId="2" navigable="false">      
-      <attribute id="19" name="rooms"/>      
-      <multiplicity id="20" minimum="0" maximum="2147483647"/>    
-    </end>    
-    <end type="TARGET" refId="8" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <dependency id="21">    
-    <end type="SOURCE" refId="2"/>    
-    <end type="TARGET" refId="1"/>  
-  </dependency>  
-  <association id="22">    
-    <end type="SOURCE" refId="5" navigable="false">      
-      <attribute id="23" name="value">        
-        <position height="0" width="0" x="114" y="175"/>      
+      <attribute id="29" name="price">        
+        <position height="0" width="0" x="0" y="0"/>      
       </attribute>      
-      <multiplicity id="24" minimum="0" maximum="1">        
-        <position height="0" width="0" x="114" y="175"/>      
+      <multiplicity id="30" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="3" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="25">    
+  <association id="31">    
     <end type="SOURCE" refId="8" navigable="false">      
-      <attribute id="26" name="listOfApplicableFeatures"/>      
-      <multiplicity id="27" minimum="0" maximum="2147483647"/>    
-    </end>    
-    <end type="TARGET" refId="6" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="28">    
-    <end type="SOURCE" refId="5" navigable="false">      
-      <attribute id="29" name="type">        
-        <position height="0" width="0" x="113" y="-6"/>      
+      <attribute id="32" name="listOfApplicablePromos">        
+        <position height="0" width="0" x="0" y="0"/>      
       </attribute>      
-      <multiplicity id="30" minimum="0" maximum="1">        
-        <position height="0" width="0" x="113" y="-6"/>      
+      <multiplicity id="33" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="4" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="31">    
-    <end type="SOURCE" refId="1" navigable="false">      
-      <attribute id="32" name="featureUpgrades">        
-        <position height="0" width="0" x="9" y="-204"/>      
+  <association id="34">    
+    <end type="SOURCE" refId="5" navigable="false">      
+      <attribute id="35" name="type">        
+        <position height="0" width="0" x="113" y="-6"/>      
       </attribute>      
-      <multiplicity id="33" minimum="0" maximum="2147483647">        
-        <position height="0" width="0" x="9" y="-204"/>      
+      <multiplicity id="36" minimum="0" maximum="1">        
+        <position height="0" width="0" x="113" y="-6"/>      
       </multiplicity>    
     </end>    
-    <end type="TARGET" refId="6" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="34">    
-    <end type="SOURCE" refId="8" navigable="false">      
-      <attribute id="35" name="type"/>      
-      <multiplicity id="36" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="7" navigable="true"/>    
+    <end type="TARGET" refId="4" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 

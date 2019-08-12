@@ -1,8 +1,8 @@
 [
 	{
 		"roomId": 2,
-		"start": "2018-08-14",
-		"end": "2019-08-14",
+		"start": "2019-08-01",
+		"end": "2019-08-30",
 		"priceUpgrades": [
 			"Discount",
 			"ExtraDay",

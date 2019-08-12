@@ -3,15 +3,10 @@ package com.hotel.api;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.GregorianCalendar;
-import java.util.HashMap;
 import java.util.LinkedList;
-import java.util.List;
 import java.util.stream.Collectors;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -105,7 +100,7 @@ public class BookingController {
 	 * @param end
 	 * @return list of unique reservations
 	 */
-	private LinkedList<Booking> getListOfReservations(Integer roomId, String roomType, Calendar start,
+	public LinkedList<Booking> getListOfReservations(Integer roomId, String roomType, Calendar start,
 			Calendar end) {
 
 		Calendar startCl = new GregorianCalendar(start.get(Calendar.YEAR), start.get(Calendar.MONTH), start.get(Calendar.DATE));
@@ -149,7 +144,7 @@ public class BookingController {
 	 * @param cl
 	 * @return
 	 */
-	private Calendar setTime(Calendar cl) {
+	public Calendar setTime(Calendar cl) {
 		return new GregorianCalendar(cl.get(Calendar.YEAR), cl.get(Calendar.MONTH), cl.get(Calendar.DATE));
 	}
 
