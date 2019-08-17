@@ -6,7 +6,8 @@ Backend APIs to perform certain hotel reservation and promotion application task
 
 # Build Requirements
 Gradle 5.4.1<br>
-Java 8
+Java 8<br>
+[Eclipse] Gradle command to build the project: gradle cleanEclipse eclipse build
 
 # Initial APIs
 
@@ -53,8 +54,7 @@ http://35.184.147.81:8080/reservations?roomId=2&roomType=DoubleRoom&start=2019-0
 Find rooms vacancies for certain dates - All filter parameters are required for this call<br>
 
 Example of unavailable room type during a certain time range "DoubleRoom" - Return list will be empty due to unavailability of any room with this criteria<br>
-http://35.184.147.81:8080/vacancies?roomType=DoubleRoom&start=2019-08-01&end=2019-09-25 - Endpoint development in progress<br>
-
+http://35.184.147.81:8080/vacancies?roomType=DoubleRoom&start=2019-08-10&end=2019-09-25<br>
 
 Example of available room type during same time range "LuxuryRoom"<br>
 http://35.184.147.81:8080/vacancies?roomType=LuxuryRoom&start=2019-08-25&end=2019-09-25<br>

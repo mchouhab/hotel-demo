@@ -5,13 +5,9 @@
 		"end": "2019-08-30",
 		"priceUpgrades": [
 			"Discount",
-			"ExtraDay",
 			"FeatureUpgrade"
 		],
 		"featureUpgrades": [
-			"DoubleBed",
-			"SingleBed",
-			"QueenBed",
 			"KingBed",
 			"Microwave",
 			"Fridge"

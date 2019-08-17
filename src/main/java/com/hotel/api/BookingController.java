@@ -104,6 +104,7 @@ public class BookingController {
 			Calendar end) {
 
 		Calendar startCl = new GregorianCalendar(start.get(Calendar.YEAR), start.get(Calendar.MONTH), start.get(Calendar.DATE));
+		Calendar startCl2 = new GregorianCalendar(start.get(Calendar.YEAR), start.get(Calendar.MONTH), start.get(Calendar.DATE));
 		Calendar endCl = new GregorianCalendar(end.get(Calendar.YEAR), end.get(Calendar.MONTH), end.get(Calendar.DATE));
 		
 		LinkedList<Booking> list = new LinkedList<Booking>();
@@ -119,7 +120,9 @@ public class BookingController {
 		}
 
 		// Booking starts before end of range
-		while (endCl.after(startCl)) {
+		reservationBook.getlistOfBookingsByEndDate().forEach((k,v) -> System.out.println(k.getTime() + " vs " + startCl2.getTime()));
+		while (endCl.after(startCl2)) {
+			System.out.println("contains "+ startCl2.getTime() + "?" + reservationBook.getlistOfBookingsByEndDate().containsKey(startCl2));
 			if (reservationBook.getlistOfBookingsByEndDate().containsKey(endCl)
 					&& reservationBook.getlistOfBookingsByEndDate().get(endCl) != null) {
 				list.addAll(reservationBook.getlistOfBookingsByEndDate().get(endCl));
