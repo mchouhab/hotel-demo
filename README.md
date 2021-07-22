@@ -40,27 +40,27 @@ GET /vacancies?roomType=?&start=?&end=?
 
 
 Get list of all rooms<br>
-http://35.184.147.81:8080/rooms<br>
+http://[IP]:[PORT]/rooms<br>
 
 Get list of all promotions and the room ids that have the promo applied<br>
-http://35.184.147.81:8080/promos<br>
+http://[IP]:[PORT]/promos<br>
 
 Get list of all reservations on the system<br>
-http://35.184.147.81:8080/reservations<br>
+http://[IP]:[PORT]/reservations<br>
 
 Get list of all reservations in a system booked against a certain room Id or type using a time range - filters are optional for this call<br>
-http://35.184.147.81:8080/reservations?roomId=2&roomType=DoubleRoom&start=2019-08-01&end=2019-08-30<br>
+http://[IP]:[PORT]/reservations?roomId=2&roomType=DoubleRoom&start=2019-08-01&end=2019-08-30<br>
 <br>
 Find rooms vacancies for certain dates - All filter parameters are required for this call<br>
 
 Example of unavailable room type during a certain time range "DoubleRoom" - Return list will be empty due to unavailability of any room with this criteria<br>
-http://35.184.147.81:8080/vacancies?roomType=DoubleRoom&start=2019-08-10&end=2019-09-25<br>
+http://[IP]:[PORT]/vacancies?roomType=DoubleRoom&start=2019-08-10&end=2019-09-25<br>
 
 Example of available room type during same time range "LuxuryRoom"<br>
-http://35.184.147.81:8080/vacancies?roomType=LuxuryRoom&start=2019-08-25&end=2019-09-25<br>
+http://[IP]:[PORT]/vacancies?roomType=LuxuryRoom&start=2019-08-25&end=2019-09-25<br>
 
 Another room type that is available during the same range "SingleRoom"<br>
-http://35.184.147.81:8080/vacancies?roomType=SingleRoom&start=2019-08-25&end=2019-09-25<br>
+http://[IP]:[PORT]/vacancies?roomType=SingleRoom&start=2019-08-25&end=2019-09-25<br>
 
 
 
